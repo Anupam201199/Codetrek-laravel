@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/questions/index', 'QuestionController@index');
+Route::post('/questions/index','QuestionController@store');
+
+Route::get('/questions/create','QuestionController@create')->middleware('auth');
+
